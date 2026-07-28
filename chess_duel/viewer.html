@@ -1,0 +1,661 @@
+<title>The Aggressor vs The Strategist — AI Chess Duel</title>
+<style>
+  :root {
+    --ink: #14161b;
+    --ink-panel: #1c1f26;
+    --ink-panel-raised: #23262f;
+    --board-light: #e9e0c9;
+    --board-dark: #4a3527;
+    --board-dark-grain: #43301f;
+    --ember: #d1552f;
+    --ember-dim: #7a3521;
+    --slate: #5a8bb0;
+    --slate-dim: #2f4a5c;
+    --text: #ece6d8;
+    --text-dim: #9c9284;
+    --hairline: #33363f;
+    --highlight: rgba(209, 85, 47, 0.28);
+    --shadow: rgba(0, 0, 0, 0.45);
+  }
+
+  :root[data-theme="light"] {
+    --ink: #f3ede0;
+    --ink-panel: #fffdf8;
+    --ink-panel-raised: #ffffff;
+    --board-light: #f2ead4;
+    --board-dark: #6b4a34;
+    --board-dark-grain: #61422e;
+    --ember: #b8431f;
+    --ember-dim: #e8c3b2;
+    --slate: #2f6484;
+    --slate-dim: #c4d8e2;
+    --text: #211c14;
+    --text-dim: #6b6355;
+    --hairline: #ddd3bf;
+    --highlight: rgba(184, 67, 31, 0.16);
+    --shadow: rgba(60, 45, 20, 0.15);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ink: #f3ede0;
+      --ink-panel: #fffdf8;
+      --ink-panel-raised: #ffffff;
+      --board-light: #f2ead4;
+      --board-dark: #6b4a34;
+      --board-dark-grain: #61422e;
+      --ember: #b8431f;
+      --ember-dim: #e8c3b2;
+      --slate: #2f6484;
+      --slate-dim: #c4d8e2;
+      --text: #211c14;
+      --text-dim: #6b6355;
+      --hairline: #ddd3bf;
+      --highlight: rgba(184, 67, 31, 0.16);
+      --shadow: rgba(60, 45, 20, 0.15);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    padding: 2.5rem 1.25rem 4rem;
+    display: flex;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 68rem;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.85rem;
+  }
+
+  h1 {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    text-wrap: balance;
+    margin: 0 0 0.9rem;
+    letter-spacing: -0.01em;
+  }
+
+  h1 .vs {
+    font-style: normal;
+    color: var(--text-dim);
+    font-size: 0.55em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0 0.4em;
+    vertical-align: middle;
+  }
+
+  .meta {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+
+  .meta .result-chip {
+    display: inline-block;
+    margin-left: 0.6rem;
+    padding: 0.15rem 0.65rem;
+    border-radius: 999px;
+    background: var(--ink-panel-raised);
+    border: 1px solid var(--hairline);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--text);
+    font-size: 0.82rem;
+  }
+
+  /* ---------- Arena layout ---------- */
+  .arena {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  @media (min-width: 860px) {
+    .arena {
+      grid-template-columns: 15rem 1fr 15rem;
+      gap: 1.5rem;
+    }
+  }
+
+  .persona {
+    background: var(--ink-panel);
+    border: 1px solid var(--hairline);
+    border-radius: 0.9rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-height: 0;
+  }
+
+  .persona-white { border-top: 3px solid var(--ember); }
+  .persona-black { border-top: 3px solid var(--slate); }
+
+  .persona-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .persona-head .swatch {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    flex: none;
+  }
+  .persona-white .swatch { background: var(--ember); }
+  .persona-black .swatch { background: var(--slate); }
+
+  .persona-head h2 {
+    font-family: Georgia, "Iowan Old Style", serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    margin: 0;
+    flex: 1;
+  }
+
+  .side-tag {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .persona-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin: -0.4rem 0 0;
+  }
+
+  .captured {
+    min-height: 1.6rem;
+    font-size: 1.15rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+  }
+
+  .comment-bubble {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    background: var(--ink-panel-raised);
+    border-radius: 0.6rem;
+    border-left: 3px solid var(--hairline);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    font-style: italic;
+    min-height: 4.5rem;
+  }
+  .persona-white .comment-bubble { border-left-color: var(--ember); }
+  .persona-black .comment-bubble { border-left-color: var(--slate); }
+
+  /* ---------- Board stage ---------- */
+  .board-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .board-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 26rem;
+    aspect-ratio: 1;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    background: var(--ink-panel);
+    border: 1px solid var(--hairline);
+    box-shadow: 0 1.5rem 3rem var(--shadow);
+  }
+
+  .board {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border-radius: 0.2rem;
+    overflow: hidden;
+  }
+
+  .sq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.3rem, 4.2vw, 2.1rem);
+    position: relative;
+    user-select: none;
+  }
+  .sq.light { background: var(--board-light); }
+  .sq.dark {
+    background:
+      repeating-linear-gradient(135deg, transparent 0 6px, var(--board-dark-grain) 6px 7px),
+      var(--board-dark);
+  }
+  .sq.moved::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--highlight);
+  }
+  .sq .piece-white { color: #f4ede2; text-shadow: 0 1px 2px rgba(0,0,0,0.55); position: relative; }
+  .sq .piece-black { color: #1a1712; text-shadow: 0 1px 1px rgba(255,255,255,0.18); position: relative; }
+  :root[data-theme="light"] .sq .piece-white { text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .sq .piece-white { text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+  }
+
+  .transport {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .transport button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--ink-panel);
+    color: var(--text);
+    border: 1px solid var(--hairline);
+    border-radius: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .transport button:hover { border-color: var(--ember); }
+  .transport button:focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 2px;
+  }
+  .transport button#btn-play { color: var(--ember); }
+
+  .slider-row {
+    width: 100%;
+    max-width: 26rem;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--ember);
+  }
+
+  .ply-readout {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  /* ---------- Move list ---------- */
+  .movelist-wrap {
+    margin-top: 2.5rem;
+  }
+
+  .movelist-wrap h3 {
+    font-family: Georgia, "Iowan Old Style", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    margin: 0 0 0.75rem;
+  }
+
+  .movelist-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--hairline);
+    border-radius: 0.6rem;
+    max-height: 20rem;
+    overflow-y: auto;
+  }
+
+  table.movelist {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  table.movelist thead th {
+    position: sticky;
+    top: 0;
+    background: var(--ink-panel-raised);
+    text-align: left;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  table.movelist td {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+
+  table.movelist tbody tr {
+    cursor: pointer;
+    background: var(--ink-panel);
+    transition: background 0.12s ease;
+  }
+  table.movelist tbody tr:hover { background: var(--ink-panel-raised); }
+  table.movelist tbody tr.active { background: var(--ink-panel-raised); }
+  table.movelist tbody tr.active td.san { color: var(--ember); }
+  table.movelist tbody tr.active.black td.san { color: var(--slate); }
+
+  td.ply { color: var(--text-dim); width: 3rem; }
+  td.san { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-weight: 600; width: 5rem; }
+  td.who { width: 8rem; color: var(--text-dim); font-size: 0.78rem; }
+  td.comment { color: var(--text-dim); font-style: italic; }
+  td.comment.fallback { color: var(--ember-dim); }
+
+  .colophon {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+
+<div class="page">
+  <header class="masthead">
+    <div class="eyebrow">AI Chess Duel · GPT&#8288;-&#8288;5 vs GPT&#8288;-&#8288;5</div>
+    <h1>The Aggressor <span class="vs">vs</span> The Strategist</h1>
+    <div class="meta" id="meta-line">Loading game&hellip;</div>
+  </header>
+
+  <main class="arena">
+    <section class="persona persona-white" id="panel-white">
+      <div class="persona-head">
+        <span class="swatch"></span>
+        <h2>The Aggressor</h2>
+        <span class="side-tag">White</span>
+      </div>
+      <p class="persona-desc">Sharp tactics, sacrifices, initiative over material.</p>
+      <div class="captured mono" id="captured-white">&nbsp;</div>
+      <blockquote class="comment-bubble" id="comment-white">Ready.</blockquote>
+    </section>
+
+    <section class="board-stage">
+      <div class="board-wrap">
+        <div class="board" id="board"></div>
+      </div>
+      <div class="transport">
+        <button id="btn-first" title="Start" aria-label="Jump to start">⏮</button>
+        <button id="btn-prev" title="Previous move" aria-label="Previous move">◁</button>
+        <button id="btn-play" title="Play / pause" aria-label="Play or pause">▶</button>
+        <button id="btn-next" title="Next move" aria-label="Next move">▷</button>
+        <button id="btn-last" title="Final position" aria-label="Jump to final position">⏭</button>
+      </div>
+      <div class="slider-row">
+        <input id="slider" type="range" min="0" max="0" value="0" aria-label="Move number" />
+      </div>
+      <div class="ply-readout mono" id="ply-readout">Start position</div>
+    </section>
+
+    <section class="persona persona-black" id="panel-black">
+      <div class="persona-head">
+        <span class="swatch"></span>
+        <h2>The Strategist</h2>
+        <span class="side-tag">Black</span>
+      </div>
+      <p class="persona-desc">Structure, coordination, patience over complications.</p>
+      <div class="captured mono" id="captured-black">&nbsp;</div>
+      <blockquote class="comment-bubble" id="comment-black">Ready.</blockquote>
+    </section>
+  </main>
+
+  <section class="movelist-wrap">
+    <h3>Move log</h3>
+    <div class="movelist-scroll">
+      <table class="movelist">
+        <thead>
+          <tr><th>#</th><th>Move</th><th>Persona</th><th>Comment</th></tr>
+        </thead>
+        <tbody id="movelist-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="colophon" id="colophon">&nbsp;</footer>
+</div>
+
+<script>
+  // ---- Game data (replaced with the real transcript after the duel runs) ----
+  const GAME = {
+    white: "The Aggressor",
+    black: "The Strategist",
+    result: "*",
+    termination: "IN_PROGRESS",
+    moves: []
+  };
+
+  const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+  const PIECE_GLYPH = {
+    K: "♔", Q: "♕", R: "♖", B: "♗", N: "♘", P: "♙",
+    k: "♚", q: "♛", r: "♜", b: "♝", n: "♞", p: "♟"
+  };
+  const START_COUNTS = { p: 8, n: 2, b: 2, r: 2, q: 1, k: 1 };
+
+  function parseFEN(fen) {
+    const rows = fen.split(" ")[0].split("/");
+    const grid = [];
+    for (const row of rows) {
+      const line = [];
+      for (const ch of row) {
+        if (/\d/.test(ch)) {
+          for (let i = 0; i < Number(ch); i++) line.push(null);
+        } else {
+          line.push(ch);
+        }
+      }
+      grid.push(line);
+    }
+    return grid; // grid[0] = rank8 ... grid[7] = rank1
+  }
+
+  function countPieces(fen) {
+    const counts = { white: { p: 0, n: 0, b: 0, r: 0, q: 0, k: 0 }, black: { p: 0, n: 0, b: 0, r: 0, q: 0, k: 0 } };
+    for (const ch of fen.split(" ")[0]) {
+      if (/[a-zA-Z]/.test(ch)) {
+        const side = ch === ch.toUpperCase() ? "white" : "black";
+        counts[side][ch.toLowerCase()]++;
+      }
+    }
+    return counts;
+  }
+
+  function capturedGlyphs(fen) {
+    const counts = countPieces(fen);
+    const order = ["q", "r", "b", "n", "p"];
+    const byWhite = order.flatMap(t => Array(Math.max(0, START_COUNTS[t] - counts.black[t])).fill(PIECE_GLYPH[t]));
+    const byBlack = order.flatMap(t => Array(Math.max(0, START_COUNTS[t] - counts.white[t])).fill(PIECE_GLYPH[t.toUpperCase()]));
+    return { byWhite, byBlack };
+  }
+
+  // positions[0] = start; positions[i] = fen after move i (1-indexed into GAME.moves)
+  const positions = [START_FEN, ...GAME.moves.map(m => m.fen_after)];
+
+  let current = 0;
+  let playTimer = null;
+
+  const boardEl = document.getElementById("board");
+  const sliderEl = document.getElementById("slider");
+  const plyReadout = document.getElementById("ply-readout");
+  const metaLine = document.getElementById("meta-line");
+  const colophon = document.getElementById("colophon");
+  const commentWhite = document.getElementById("comment-white");
+  const commentBlack = document.getElementById("comment-black");
+  const capturedWhite = document.getElementById("captured-white");
+  const capturedBlack = document.getElementById("captured-black");
+  const movelistBody = document.getElementById("movelist-body");
+
+  function buildBoardSquares() {
+    boardEl.innerHTML = "";
+    for (let rank = 0; rank < 8; rank++) {
+      for (let file = 0; file < 8; file++) {
+        const sq = document.createElement("div");
+        const isLight = (file + (8 - rank)) % 2 === 0;
+        sq.className = "sq " + (isLight ? "light" : "dark");
+        sq.dataset.rank = rank;
+        sq.dataset.file = file;
+        boardEl.appendChild(sq);
+      }
+    }
+  }
+
+  function renderBoard(index) {
+    const fen = positions[index];
+    const grid = parseFEN(fen);
+    const prevGrid = index > 0 ? parseFEN(positions[index - 1]) : null;
+
+    const squares = boardEl.children;
+    for (let rank = 0; rank < 8; rank++) {
+      for (let file = 0; file < 8; file++) {
+        const sq = squares[rank * 8 + file];
+        const piece = grid[rank][file];
+        sq.innerHTML = "";
+        if (piece) {
+          const span = document.createElement("span");
+          span.className = piece === piece.toUpperCase() ? "piece-white" : "piece-black";
+          span.textContent = PIECE_GLYPH[piece];
+          sq.appendChild(span);
+        }
+        const changed = prevGrid && prevGrid[rank][file] !== piece;
+        sq.classList.toggle("moved", Boolean(changed));
+      }
+    }
+  }
+
+  function lastMoveByColor(index, color) {
+    for (let i = index; i >= 1; i--) {
+      if (GAME.moves[i - 1].color === color) return GAME.moves[i - 1];
+    }
+    return null;
+  }
+
+  function render(index) {
+    current = index;
+    sliderEl.value = String(index);
+    renderBoard(index);
+
+    const fen = positions[index];
+    const { byWhite, byBlack } = capturedGlyphs(fen);
+    capturedWhite.textContent = byWhite.length ? byWhite.join(" ") : " ";
+    capturedBlack.textContent = byBlack.length ? byBlack.join(" ") : " ";
+
+    const w = lastMoveByColor(index, "white");
+    const b = lastMoveByColor(index, "black");
+    commentWhite.textContent = w ? w.comment || "…" : "Ready.";
+    commentBlack.textContent = b ? b.comment || "…" : "Ready.";
+
+    if (index === 0) {
+      plyReadout.textContent = "Start position";
+    } else {
+      const m = GAME.moves[index - 1];
+      const moveNo = Math.ceil(m.ply / 2);
+      plyReadout.textContent = `Move ${moveNo}${m.color === "white" ? "." : "..."} ${m.san}`;
+    }
+
+    [...movelistBody.children].forEach((row, i) => {
+      row.classList.toggle("active", i + 1 === index);
+    });
+    const activeRow = movelistBody.children[index - 1];
+    if (activeRow) activeRow.scrollIntoView({ block: "nearest" });
+  }
+
+  function buildMovelist() {
+    movelistBody.innerHTML = "";
+    GAME.moves.forEach((m, i) => {
+      const tr = document.createElement("tr");
+      tr.className = m.color;
+      tr.innerHTML = `
+        <td class="ply mono">${m.ply}</td>
+        <td class="san">${m.san}</td>
+        <td class="who">${m.persona}</td>
+        <td class="comment${m.fallback ? " fallback" : ""}">${m.comment || ""}</td>
+      `;
+      tr.addEventListener("click", () => render(i + 1));
+      movelistBody.appendChild(tr);
+    });
+  }
+
+  function stopPlay() {
+    if (playTimer) {
+      clearInterval(playTimer);
+      playTimer = null;
+      document.getElementById("btn-play").textContent = "▶";
+    }
+  }
+
+  function togglePlay() {
+    if (playTimer) {
+      stopPlay();
+      return;
+    }
+    document.getElementById("btn-play").textContent = "⏸";
+    playTimer = setInterval(() => {
+      if (current >= positions.length - 1) { stopPlay(); return; }
+      render(current + 1);
+    }, 900);
+  }
+
+  document.getElementById("btn-first").addEventListener("click", () => { stopPlay(); render(0); });
+  document.getElementById("btn-last").addEventListener("click", () => { stopPlay(); render(positions.length - 1); });
+  document.getElementById("btn-prev").addEventListener("click", () => { stopPlay(); render(Math.max(0, current - 1)); });
+  document.getElementById("btn-next").addEventListener("click", () => { stopPlay(); render(Math.min(positions.length - 1, current + 1)); });
+  document.getElementById("btn-play").addEventListener("click", togglePlay);
+  sliderEl.addEventListener("input", (e) => { stopPlay(); render(Number(e.target.value)); });
+
+  function init() {
+    buildBoardSquares();
+    buildMovelist();
+    sliderEl.max = String(positions.length - 1);
+    metaLine.innerHTML = GAME.moves.length
+      ? `${GAME.moves.length} plies &middot; <span class="result-chip">${GAME.result}</span> &middot; ${GAME.termination.replaceAll("_", " ").toLowerCase()}`
+      : "Waiting for the game to be generated&hellip;";
+    colophon.textContent = GAME.moves.length
+      ? `White: ${GAME.white} · Black: ${GAME.black} · both played by GPT-5`
+      : "";
+    render(0);
+  }
+
+  init();
+</script>
