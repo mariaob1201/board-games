@@ -1,0 +1,808 @@
+{
+  "white": "The Aggressor",
+  "black": "The Strategist",
+  "result": "*",
+  "termination": "MAX_PLIES",
+  "moves": [
+    {
+      "ply": 1,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "e4",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "comment": "I seize the center and open lines for a swift attack.",
+      "fallback": false
+    },
+    {
+      "ply": 2,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "c6",
+      "fen_before": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "fen_after": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "comment": "I choose the solid Caro-Kann, building a resilient pawn chain and flexible development.",
+      "fallback": false
+    },
+    {
+      "ply": 3,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "d4",
+      "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+      "comment": "Grab the center and gear up for a kingside onslaught.",
+      "fallback": false
+    },
+    {
+      "ply": 4,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "d5",
+      "fen_before": "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+      "fen_after": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3",
+      "comment": "I challenge the center with the solid Caro-Kann structure for long-term stability.",
+      "fallback": false
+    },
+    {
+      "ply": 5,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "f3",
+      "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3",
+      "fen_after": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/5P2/PPP3PP/RNBQKBNR b KQkq - 0 3",
+      "comment": "Fantasy Variation\u2014I'll seize the initiative and launch a direct kingside assault.",
+      "fallback": false
+    },
+    {
+      "ply": 6,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "f5",
+      "fen_before": "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/5P2/PPP3PP/RNBQKBNR b KQkq - 0 3",
+      "fen_after": "rnbqkbnr/pp2p1pp/2p5/3p1p2/3PP3/5P2/PPP3PP/RNBQKBNR w KQkq - 0 4",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 7,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "g4",
+      "fen_before": "rnbqkbnr/pp2p1pp/2p5/3p1p2/3PP3/5P2/PPP3PP/RNBQKBNR w KQkq - 0 4",
+      "fen_after": "rnbqkbnr/pp2p1pp/2p5/3p1p2/3PP1P1/5P2/PPP4P/RNBQKBNR b KQkq - 0 4",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 8,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "fxg4",
+      "fen_before": "rnbqkbnr/pp2p1pp/2p5/3p1p2/3PP1P1/5P2/PPP4P/RNBQKBNR b KQkq - 0 4",
+      "fen_after": "rnbqkbnr/pp2p1pp/2p5/3p4/3PP1p1/5P2/PPP4P/RNBQKBNR w KQkq - 0 5",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 9,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "a4",
+      "fen_before": "rnbqkbnr/pp2p1pp/2p5/3p4/3PP1p1/5P2/PPP4P/RNBQKBNR w KQkq - 0 5",
+      "fen_after": "rnbqkbnr/pp2p1pp/2p5/3p4/P2PP1p1/5P2/1PP4P/RNBQKBNR b KQkq - 0 5",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 10,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "e6",
+      "fen_before": "rnbqkbnr/pp2p1pp/2p5/3p4/P2PP1p1/5P2/1PP4P/RNBQKBNR b KQkq - 0 5",
+      "fen_after": "rnbqkbnr/pp4pp/2p1p3/3p4/P2PP1p1/5P2/1PP4P/RNBQKBNR w KQkq - 0 6",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 11,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "h3",
+      "fen_before": "rnbqkbnr/pp4pp/2p1p3/3p4/P2PP1p1/5P2/1PP4P/RNBQKBNR w KQkq - 0 6",
+      "fen_after": "rnbqkbnr/pp4pp/2p1p3/3p4/P2PP1p1/5P1P/1PP5/RNBQKBNR b KQkq - 0 6",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 12,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "g3",
+      "fen_before": "rnbqkbnr/pp4pp/2p1p3/3p4/P2PP1p1/5P1P/1PP5/RNBQKBNR b KQkq - 0 6",
+      "fen_after": "rnbqkbnr/pp4pp/2p1p3/3p4/P2PP3/5PpP/1PP5/RNBQKBNR w KQkq - 0 7",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 13,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Ba6",
+      "fen_before": "rnbqkbnr/pp4pp/2p1p3/3p4/P2PP3/5PpP/1PP5/RNBQKBNR w KQkq - 0 7",
+      "fen_after": "rnbqkbnr/pp4pp/B1p1p3/3p4/P2PP3/5PpP/1PP5/RNBQK1NR b KQkq - 1 7",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 14,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Qa5+",
+      "fen_before": "rnbqkbnr/pp4pp/B1p1p3/3p4/P2PP3/5PpP/1PP5/RNBQK1NR b KQkq - 1 7",
+      "fen_after": "rnb1kbnr/pp4pp/B1p1p3/q2p4/P2PP3/5PpP/1PP5/RNBQK1NR w KQkq - 2 8",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 15,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Nc3",
+      "fen_before": "rnb1kbnr/pp4pp/B1p1p3/q2p4/P2PP3/5PpP/1PP5/RNBQK1NR w KQkq - 2 8",
+      "fen_after": "rnb1kbnr/pp4pp/B1p1p3/q2p4/P2PP3/2N2PpP/1PP5/R1BQK1NR b KQkq - 3 8",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 16,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "g5",
+      "fen_before": "rnb1kbnr/pp4pp/B1p1p3/q2p4/P2PP3/2N2PpP/1PP5/R1BQK1NR b KQkq - 3 8",
+      "fen_after": "rnb1kbnr/pp5p/B1p1p3/q2p2p1/P2PP3/2N2PpP/1PP5/R1BQK1NR w KQkq - 0 9",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 17,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "b4",
+      "fen_before": "rnb1kbnr/pp5p/B1p1p3/q2p2p1/P2PP3/2N2PpP/1PP5/R1BQK1NR w KQkq - 0 9",
+      "fen_after": "rnb1kbnr/pp5p/B1p1p3/q2p2p1/PP1PP3/2N2PpP/2P5/R1BQK1NR b KQkq - 0 9",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 18,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nd7",
+      "fen_before": "rnb1kbnr/pp5p/B1p1p3/q2p2p1/PP1PP3/2N2PpP/2P5/R1BQK1NR b KQkq - 0 9",
+      "fen_after": "r1b1kbnr/pp1n3p/B1p1p3/q2p2p1/PP1PP3/2N2PpP/2P5/R1BQK1NR w KQkq - 1 10",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 19,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "e5",
+      "fen_before": "r1b1kbnr/pp1n3p/B1p1p3/q2p2p1/PP1PP3/2N2PpP/2P5/R1BQK1NR w KQkq - 1 10",
+      "fen_after": "r1b1kbnr/pp1n3p/B1p1p3/q2pP1p1/PP1P4/2N2PpP/2P5/R1BQK1NR b KQkq - 0 10",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 20,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nh6",
+      "fen_before": "r1b1kbnr/pp1n3p/B1p1p3/q2pP1p1/PP1P4/2N2PpP/2P5/R1BQK1NR b KQkq - 0 10",
+      "fen_after": "r1b1kb1r/pp1n3p/B1p1p2n/q2pP1p1/PP1P4/2N2PpP/2P5/R1BQK1NR w KQkq - 1 11",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 21,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "bxa5",
+      "fen_before": "r1b1kb1r/pp1n3p/B1p1p2n/q2pP1p1/PP1P4/2N2PpP/2P5/R1BQK1NR w KQkq - 1 11",
+      "fen_after": "r1b1kb1r/pp1n3p/B1p1p2n/P2pP1p1/P2P4/2N2PpP/2P5/R1BQK1NR b KQkq - 0 11",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 22,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Bg7",
+      "fen_before": "r1b1kb1r/pp1n3p/B1p1p2n/P2pP1p1/P2P4/2N2PpP/2P5/R1BQK1NR b KQkq - 0 11",
+      "fen_after": "r1b1k2r/pp1n2bp/B1p1p2n/P2pP1p1/P2P4/2N2PpP/2P5/R1BQK1NR w KQkq - 1 12",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 23,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Bb2",
+      "fen_before": "r1b1k2r/pp1n2bp/B1p1p2n/P2pP1p1/P2P4/2N2PpP/2P5/R1BQK1NR w KQkq - 1 12",
+      "fen_after": "r1b1k2r/pp1n2bp/B1p1p2n/P2pP1p1/P2P4/2N2PpP/1BP5/R2QK1NR b KQkq - 2 12",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 24,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nf6",
+      "fen_before": "r1b1k2r/pp1n2bp/B1p1p2n/P2pP1p1/P2P4/2N2PpP/1BP5/R2QK1NR b KQkq - 2 12",
+      "fen_after": "r1b1k2r/pp4bp/B1p1pn1n/P2pP1p1/P2P4/2N2PpP/1BP5/R2QK1NR w KQkq - 3 13",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 25,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Qb1",
+      "fen_before": "r1b1k2r/pp4bp/B1p1pn1n/P2pP1p1/P2P4/2N2PpP/1BP5/R2QK1NR w KQkq - 3 13",
+      "fen_after": "r1b1k2r/pp4bp/B1p1pn1n/P2pP1p1/P2P4/2N2PpP/1BP5/RQ2K1NR b KQkq - 4 13",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 26,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Kd8",
+      "fen_before": "r1b1k2r/pp4bp/B1p1pn1n/P2pP1p1/P2P4/2N2PpP/1BP5/RQ2K1NR b KQkq - 4 13",
+      "fen_after": "r1bk3r/pp4bp/B1p1pn1n/P2pP1p1/P2P4/2N2PpP/1BP5/RQ2K1NR w KQ - 5 14",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 27,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Nb5",
+      "fen_before": "r1bk3r/pp4bp/B1p1pn1n/P2pP1p1/P2P4/2N2PpP/1BP5/RQ2K1NR w KQ - 5 14",
+      "fen_after": "r1bk3r/pp4bp/B1p1pn1n/PN1pP1p1/P2P4/5PpP/1BP5/RQ2K1NR b KQ - 6 14",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 28,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nfg4",
+      "fen_before": "r1bk3r/pp4bp/B1p1pn1n/PN1pP1p1/P2P4/5PpP/1BP5/RQ2K1NR b KQ - 6 14",
+      "fen_after": "r1bk3r/pp4bp/B1p1p2n/PN1pP1p1/P2P2n1/5PpP/1BP5/RQ2K1NR w KQ - 7 15",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 29,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "h4",
+      "fen_before": "r1bk3r/pp4bp/B1p1p2n/PN1pP1p1/P2P2n1/5PpP/1BP5/RQ2K1NR w KQ - 7 15",
+      "fen_after": "r1bk3r/pp4bp/B1p1p2n/PN1pP1p1/P2P2nP/5Pp1/1BP5/RQ2K1NR b KQ - 0 15",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 30,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Kd7",
+      "fen_before": "r1bk3r/pp4bp/B1p1p2n/PN1pP1p1/P2P2nP/5Pp1/1BP5/RQ2K1NR b KQ - 0 15",
+      "fen_after": "r1b4r/pp1k2bp/B1p1p2n/PN1pP1p1/P2P2nP/5Pp1/1BP5/RQ2K1NR w KQ - 1 16",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 31,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Qa2",
+      "fen_before": "r1b4r/pp1k2bp/B1p1p2n/PN1pP1p1/P2P2nP/5Pp1/1BP5/RQ2K1NR w KQ - 1 16",
+      "fen_after": "r1b4r/pp1k2bp/B1p1p2n/PN1pP1p1/P2P2nP/5Pp1/QBP5/R3K1NR b KQ - 2 16",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 32,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "b6",
+      "fen_before": "r1b4r/pp1k2bp/B1p1p2n/PN1pP1p1/P2P2nP/5Pp1/QBP5/R3K1NR b KQ - 2 16",
+      "fen_after": "r1b4r/p2k2bp/Bpp1p2n/PN1pP1p1/P2P2nP/5Pp1/QBP5/R3K1NR w KQ - 0 17",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 33,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Bc1",
+      "fen_before": "r1b4r/p2k2bp/Bpp1p2n/PN1pP1p1/P2P2nP/5Pp1/QBP5/R3K1NR w KQ - 0 17",
+      "fen_after": "r1b4r/p2k2bp/Bpp1p2n/PN1pP1p1/P2P2nP/5Pp1/Q1P5/R1B1K1NR b KQ - 1 17",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 34,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Kd8",
+      "fen_before": "r1b4r/p2k2bp/Bpp1p2n/PN1pP1p1/P2P2nP/5Pp1/Q1P5/R1B1K1NR b KQ - 1 17",
+      "fen_after": "r1bk3r/p5bp/Bpp1p2n/PN1pP1p1/P2P2nP/5Pp1/Q1P5/R1B1K1NR w KQ - 2 18",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 35,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Qxd5+",
+      "fen_before": "r1bk3r/p5bp/Bpp1p2n/PN1pP1p1/P2P2nP/5Pp1/Q1P5/R1B1K1NR w KQ - 2 18",
+      "fen_after": "r1bk3r/p5bp/Bpp1p2n/PN1QP1p1/P2P2nP/5Pp1/2P5/R1B1K1NR b KQ - 0 18",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 36,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Ke8",
+      "fen_before": "r1bk3r/p5bp/Bpp1p2n/PN1QP1p1/P2P2nP/5Pp1/2P5/R1B1K1NR b KQ - 0 18",
+      "fen_after": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P2nP/5Pp1/2P5/R1B1K1NR w KQ - 1 19",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 37,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Ne2",
+      "fen_before": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P2nP/5Pp1/2P5/R1B1K1NR w KQ - 1 19",
+      "fen_after": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P2nP/5Pp1/2P1N3/R1B1K2R b KQ - 2 19",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 38,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Ne3",
+      "fen_before": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P2nP/5Pp1/2P1N3/R1B1K2R b KQ - 2 19",
+      "fen_after": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2P1N3/R1B1K2R w KQ - 3 20",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 39,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Ng1",
+      "fen_before": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2P1N3/R1B1K2R w KQ - 3 20",
+      "fen_after": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2P5/R1B1K1NR b KQ - 4 20",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 40,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Rb8",
+      "fen_before": "r1b1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2P5/R1B1K1NR b KQ - 4 20",
+      "fen_after": "1rb1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2P5/R1B1K1NR w KQ - 5 21",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 41,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Bd2",
+      "fen_before": "1rb1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2P5/R1B1K1NR w KQ - 5 21",
+      "fen_after": "1rb1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2PB4/R3K1NR b KQ - 6 21",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 42,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Kf7",
+      "fen_before": "1rb1k2r/p5bp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2PB4/R3K1NR b KQ - 6 21",
+      "fen_after": "1rb4r/p4kbp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2PB4/R3K1NR w KQ - 7 22",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 43,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Qd6",
+      "fen_before": "1rb4r/p4kbp/Bpp1p2n/PN1QP1p1/P2P3P/4nPp1/2PB4/R3K1NR w KQ - 7 22",
+      "fen_after": "1rb4r/p4kbp/BppQp2n/PN2P1p1/P2P3P/4nPp1/2PB4/R3K1NR b KQ - 8 22",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 44,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Ng2+",
+      "fen_before": "1rb4r/p4kbp/BppQp2n/PN2P1p1/P2P3P/4nPp1/2PB4/R3K1NR b KQ - 8 22",
+      "fen_after": "1rb4r/p4kbp/BppQp2n/PN2P1p1/P2P3P/5Pp1/2PB2n1/R3K1NR w KQ - 9 23",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 45,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Ke2",
+      "fen_before": "1rb4r/p4kbp/BppQp2n/PN2P1p1/P2P3P/5Pp1/2PB2n1/R3K1NR w KQ - 9 23",
+      "fen_after": "1rb4r/p4kbp/BppQp2n/PN2P1p1/P2P3P/5Pp1/2PBK1n1/R5NR b - - 10 23",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 46,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Kg8",
+      "fen_before": "1rb4r/p4kbp/BppQp2n/PN2P1p1/P2P3P/5Pp1/2PBK1n1/R5NR b - - 10 23",
+      "fen_after": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P2P3P/5Pp1/2PBK1n1/R5NR w - - 11 24",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 47,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Bf4",
+      "fen_before": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P2P3P/5Pp1/2PBK1n1/R5NR w - - 11 24",
+      "fen_after": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P2P1B1P/5Pp1/2P1K1n1/R5NR b - - 12 24",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 48,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nxh4",
+      "fen_before": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P2P1B1P/5Pp1/2P1K1n1/R5NR b - - 12 24",
+      "fen_after": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P2P1B1n/5Pp1/2P1K3/R5NR w - - 0 25",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 49,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "c4",
+      "fen_before": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P2P1B1n/5Pp1/2P1K3/R5NR w - - 0 25",
+      "fen_after": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P1PP1B1n/5Pp1/4K3/R5NR b - - 0 25",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 50,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "bxa5",
+      "fen_before": "1rb3kr/p5bp/BppQp2n/PN2P1p1/P1PP1B1n/5Pp1/4K3/R5NR b - - 0 25",
+      "fen_after": "1rb3kr/p5bp/B1pQp2n/pN2P1p1/P1PP1B1n/5Pp1/4K3/R5NR w - - 0 26",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 51,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "c5",
+      "fen_before": "1rb3kr/p5bp/B1pQp2n/pN2P1p1/P1PP1B1n/5Pp1/4K3/R5NR w - - 0 26",
+      "fen_after": "1rb3kr/p5bp/B1pQp2n/pNP1P1p1/P2P1B1n/5Pp1/4K3/R5NR b - - 0 26",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 52,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "g4",
+      "fen_before": "1rb3kr/p5bp/B1pQp2n/pNP1P1p1/P2P1B1n/5Pp1/4K3/R5NR b - - 0 26",
+      "fen_after": "1rb3kr/p5bp/B1pQp2n/pNP1P3/P2P1Bpn/5Pp1/4K3/R5NR w - - 0 27",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 53,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Rf1",
+      "fen_before": "1rb3kr/p5bp/B1pQp2n/pNP1P3/P2P1Bpn/5Pp1/4K3/R5NR w - - 0 27",
+      "fen_after": "1rb3kr/p5bp/B1pQp2n/pNP1P3/P2P1Bpn/5Pp1/4K3/5RNR b - - 1 27",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 54,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Bxa6",
+      "fen_before": "1rb3kr/p5bp/B1pQp2n/pNP1P3/P2P1Bpn/5Pp1/4K3/5RNR b - - 1 27",
+      "fen_after": "1r4kr/p5bp/b1pQp2n/pNP1P3/P2P1Bpn/5Pp1/4K3/5RNR w - - 0 28",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 55,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Rxh4",
+      "fen_before": "1r4kr/p5bp/b1pQp2n/pNP1P3/P2P1Bpn/5Pp1/4K3/5RNR w - - 0 28",
+      "fen_after": "1r4kr/p5bp/b1pQp2n/pNP1P3/P2P1BpR/5Pp1/4K3/5RN1 b - - 0 28",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 56,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Bf6",
+      "fen_before": "1r4kr/p5bp/b1pQp2n/pNP1P3/P2P1BpR/5Pp1/4K3/5RN1 b - - 0 28",
+      "fen_after": "1r4kr/p6p/b1pQpb1n/pNP1P3/P2P1BpR/5Pp1/4K3/5RN1 w - - 1 29",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 57,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Kd2",
+      "fen_before": "1r4kr/p6p/b1pQpb1n/pNP1P3/P2P1BpR/5Pp1/4K3/5RN1 w - - 1 29",
+      "fen_after": "1r4kr/p6p/b1pQpb1n/pNP1P3/P2P1BpR/5Pp1/3K4/5RN1 b - - 2 29",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 58,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Bc8",
+      "fen_before": "1r4kr/p6p/b1pQpb1n/pNP1P3/P2P1BpR/5Pp1/3K4/5RN1 b - - 2 29",
+      "fen_after": "1rb3kr/p6p/2pQpb1n/pNP1P3/P2P1BpR/5Pp1/3K4/5RN1 w - - 3 30",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 59,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Qd5",
+      "fen_before": "1rb3kr/p6p/2pQpb1n/pNP1P3/P2P1BpR/5Pp1/3K4/5RN1 w - - 3 30",
+      "fen_after": "1rb3kr/p6p/2p1pb1n/pNPQP3/P2P1BpR/5Pp1/3K4/5RN1 b - - 4 30",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 60,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Bxe5",
+      "fen_before": "1rb3kr/p6p/2p1pb1n/pNPQP3/P2P1BpR/5Pp1/3K4/5RN1 b - - 4 30",
+      "fen_after": "1rb3kr/p6p/2p1p2n/pNPQb3/P2P1BpR/5Pp1/3K4/5RN1 w - - 0 31",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 61,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Qd7",
+      "fen_before": "1rb3kr/p6p/2p1p2n/pNPQb3/P2P1BpR/5Pp1/3K4/5RN1 w - - 0 31",
+      "fen_after": "1rb3kr/p2Q3p/2p1p2n/pNP1b3/P2P1BpR/5Pp1/3K4/5RN1 b - - 1 31",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 62,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Bxd7",
+      "fen_before": "1rb3kr/p2Q3p/2p1p2n/pNP1b3/P2P1BpR/5Pp1/3K4/5RN1 b - - 1 31",
+      "fen_after": "1r4kr/p2b3p/2p1p2n/pNP1b3/P2P1BpR/5Pp1/3K4/5RN1 w - - 0 32",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 63,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "fxg4",
+      "fen_before": "1r4kr/p2b3p/2p1p2n/pNP1b3/P2P1BpR/5Pp1/3K4/5RN1 w - - 0 32",
+      "fen_after": "1r4kr/p2b3p/2p1p2n/pNP1b3/P2P1BPR/6p1/3K4/5RN1 b - - 0 32",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 64,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nf5",
+      "fen_before": "1r4kr/p2b3p/2p1p2n/pNP1b3/P2P1BPR/6p1/3K4/5RN1 b - - 0 32",
+      "fen_after": "1r4kr/p2b3p/2p1p3/pNP1bn2/P2P1BPR/6p1/3K4/5RN1 w - - 1 33",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 65,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Bg5",
+      "fen_before": "1r4kr/p2b3p/2p1p3/pNP1bn2/P2P1BPR/6p1/3K4/5RN1 w - - 1 33",
+      "fen_after": "1r4kr/p2b3p/2p1p3/pNP1bnB1/P2P2PR/6p1/3K4/5RN1 b - - 2 33",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 66,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Nh6",
+      "fen_before": "1r4kr/p2b3p/2p1p3/pNP1bnB1/P2P2PR/6p1/3K4/5RN1 b - - 2 33",
+      "fen_after": "1r4kr/p2b3p/2p1p2n/pNP1b1B1/P2P2PR/6p1/3K4/5RN1 w - - 3 34",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 67,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Rd1",
+      "fen_before": "1r4kr/p2b3p/2p1p2n/pNP1b1B1/P2P2PR/6p1/3K4/5RN1 w - - 3 34",
+      "fen_after": "1r4kr/p2b3p/2p1p2n/pNP1b1B1/P2P2PR/6p1/3K4/3R2N1 b - - 4 34",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 68,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Rb7",
+      "fen_before": "1r4kr/p2b3p/2p1p2n/pNP1b1B1/P2P2PR/6p1/3K4/3R2N1 b - - 4 34",
+      "fen_after": "6kr/pr1b3p/2p1p2n/pNP1b1B1/P2P2PR/6p1/3K4/3R2N1 w - - 5 35",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 69,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Nc3",
+      "fen_before": "6kr/pr1b3p/2p1p2n/pNP1b1B1/P2P2PR/6p1/3K4/3R2N1 w - - 5 35",
+      "fen_after": "6kr/pr1b3p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3K4/3R2N1 b - - 6 35",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 70,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Rb8",
+      "fen_before": "6kr/pr1b3p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3K4/3R2N1 b - - 6 35",
+      "fen_after": "1r4kr/p2b3p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3K4/3R2N1 w - - 7 36",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 71,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Nge2",
+      "fen_before": "1r4kr/p2b3p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3K4/3R2N1 w - - 7 36",
+      "fen_after": "1r4kr/p2b3p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3KN3/3R4 b - - 8 36",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 72,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Be8",
+      "fen_before": "1r4kr/p2b3p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3KN3/3R4 b - - 8 36",
+      "fen_after": "1r2b1kr/p6p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3KN3/3R4 w - - 9 37",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 73,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Nf4",
+      "fen_before": "1r2b1kr/p6p/2p1p2n/p1P1b1B1/P2P2PR/2N3p1/3KN3/3R4 w - - 9 37",
+      "fen_after": "1r2b1kr/p6p/2p1p2n/p1P1b1B1/P2P1NPR/2N3p1/3K4/3R4 b - - 10 37",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 74,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Rb4",
+      "fen_before": "1r2b1kr/p6p/2p1p2n/p1P1b1B1/P2P1NPR/2N3p1/3K4/3R4 b - - 10 37",
+      "fen_after": "4b1kr/p6p/2p1p2n/p1P1b1B1/Pr1P1NPR/2N3p1/3K4/3R4 w - - 11 38",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 75,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Nb5",
+      "fen_before": "4b1kr/p6p/2p1p2n/p1P1b1B1/Pr1P1NPR/2N3p1/3K4/3R4 w - - 11 38",
+      "fen_after": "4b1kr/p6p/2p1p2n/pNP1b1B1/Pr1P1NPR/6p1/3K4/3R4 b - - 12 38",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 76,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "Rc4",
+      "fen_before": "4b1kr/p6p/2p1p2n/pNP1b1B1/Pr1P1NPR/6p1/3K4/3R4 b - - 12 38",
+      "fen_after": "4b1kr/p6p/2p1p2n/pNP1b1B1/P1rP1NPR/6p1/3K4/3R4 w - - 13 39",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 77,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Kd3",
+      "fen_before": "4b1kr/p6p/2p1p2n/pNP1b1B1/P1rP1NPR/6p1/3K4/3R4 w - - 13 39",
+      "fen_after": "4b1kr/p6p/2p1p2n/pNP1b1B1/P1rP1NPR/3K2p1/8/3R4 b - - 14 39",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 78,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "cxb5",
+      "fen_before": "4b1kr/p6p/2p1p2n/pNP1b1B1/P1rP1NPR/3K2p1/8/3R4 b - - 14 39",
+      "fen_after": "4b1kr/p6p/4p2n/ppP1b1B1/P1rP1NPR/3K2p1/8/3R4 w - - 0 40",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 79,
+      "color": "white",
+      "persona": "The Aggressor",
+      "san": "Bf6",
+      "fen_before": "4b1kr/p6p/4p2n/ppP1b1B1/P1rP1NPR/3K2p1/8/3R4 w - - 0 40",
+      "fen_after": "4b1kr/p6p/4pB1n/ppP1b3/P1rP1NPR/3K2p1/8/3R4 b - - 1 40",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    },
+    {
+      "ply": 80,
+      "color": "black",
+      "persona": "The Strategist",
+      "san": "b4",
+      "fen_before": "4b1kr/p6p/4pB1n/ppP1b3/P1rP1NPR/3K2p1/8/3R4 b - - 1 40",
+      "fen_after": "4b1kr/p6p/4pB1n/p1P1b3/PprP1NPR/3K2p1/8/3R4 w - - 0 41",
+      "comment": "(fallback: random legal move after invalid replies)",
+      "fallback": true
+    }
+  ]
+}

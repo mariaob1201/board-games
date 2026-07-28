@@ -17,7 +17,9 @@ from openai import OpenAI
 load_dotenv()
 
 MODEL = "gpt-5"
-MAX_COMPLETION_TOKENS = 600
+MAX_COMPLETION_TOKENS = 400
+REASONING_EFFORT = "minimal"  # gpt-5 defaults to heavy reasoning that can consume
+                               # the whole token budget with zero visible output
 MAX_PLIES = 80
 MAX_RETRIES = 3
 
@@ -68,6 +70,7 @@ def ask_move(board: chess.Board, color: bool, history_san: list[str],
     resp = client.chat.completions.create(
         model=MODEL,
         max_completion_tokens=MAX_COMPLETION_TOKENS,
+        reasoning_effort=REASONING_EFFORT,
         messages=[
             {"role": "system", "content": persona["system"]},
             {"role": "user", "content": user_msg},
