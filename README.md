@@ -1,9 +1,3 @@
-# Games
-
-Sandbox repo for statistical/mathematical modeling experiments. Despite the
-name, it currently hosts a chess project; more experiments may land here
-over time.
-
 ## chess_duel
 
 Two GPT-5 personas — **The Aggressor** (White) and **The Strategist**
