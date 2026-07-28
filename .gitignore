@@ -2,3 +2,6 @@
 __pycache__/
 .env
 *.pyc
+.DS_Store
+chess_duel/__pycache__/
+league-of-legends/__pycache__/
